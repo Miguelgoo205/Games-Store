@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Icon" href="https://cdn-icons-png.flaticon.com/512/1694/1694661.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>GAMES STORE</title>
+</head>
+<body>
+    <header id="header">
+        <div class="logotype">
+            <h1>GAMES STORE</h1>
+        </div>
+        <div class="container-contact">
+            <img  class="icon-mail" src="/Images/auriculares.png">
+            <button>Contact Us</button>
+        </div>
+        <div class="log">
+            <img src="/Images/icon-gamer.png">
+            <button>Log In</button>
+        </div>
+    </header>
+
+    <div class="container-products">
+        <div class="modal">
+            <button id="close-modal">X</button>
+            <input type="text" id="new-name" placeholder="Name" >
+            <select name="" id="select-platform" class="select-create">
+            <!-- <input type="text" id="new-platform" placeholder="Platform" > -->
+                <option value="">Select One Platform</option>
+                <option value="PS4">PS4</option>
+                <option value="PS5">PS5</option>
+                <option value="PS4 y PS5">PS4 y PS5</option>
+            </select>
+            <select name="" id="select-type" class="select-create">
+                <option value="">Select One Category</option>
+                <option value="Acción">Action</option>
+                <option value="Aventura">Adventure</option>
+                <option value="Deportes">Sports</option>
+                <option value="Juego De Disparos">Shooting Games</option>
+                <option value="Terror">Terror</option>
+            </select>
+            <input type="text" id="new-price" placeholder="Price" >
+            <input type="file" name="" id="new-image" >
+            <button type="reset" id="btn-new-create">Create new Object</button>
+        </div>
+    <nav id="nav">
+        <button id="btn-games">All Games </button>
+
+        <select name="" id="filterXCategory">
+            <option value="">Filter For Category</option>
+            <option value="Accion">Action</option>
+            <option value="Aventura">Adventure</option>
+            <option value="Disparo">Shooting Games</option>
+            <option value="Deportes">Sports</option>
+            <option value="Terror">Terror</option>
+        </select>
+        <button id="btn-create" width="1px">Create a New Object </button>
+        <select name="" id="filterXPrice">
+            <option value="">Filter For Price</option>
+            <option value="$9.00 - $20.00">$9.00 - $20.00</option>
+            <option value="$21.00 - $40.00">$21.00 - $40.00</option>
+            <option value="$41.00 - $60.00">$41.00 - $60.00</option>
+            <option value="$61.00">$61.00</option>
+            <option value="gratuito">Free</option>
+        </select>
+
+        <div id="compras">
+            <img id="products" src="Images/shopping-cart.png" >
+            <p id="counter-label">0</p>
+        </div>
+    </nav>
+    <main id="container-cards"></main>
+    <div class="overlay " id="overlay">
+        <div class="popup" id="popup">
+            <a href="#" id="btn-close-popup" class="btn-close-popup"><i class="fas fa-times"></i></a>
+            <div class="shoppingCart">
+                <img src="Images/gamepad.png" id="pad">
+                <h3>BUY GAMES</h3>
+            </div>
+            <div class="principal-container shoppingCart-container">
+                <div class="message"> 
+                    <p>Empty Cart</p>
+                    <img src="Images/borrar.png" class="icon-mail">
+                </div>
+            </div>
+                <div class="buttons-container">
+                    <button id="empty">EMPTY</button>
+                    <button id="buy">BUY</button>
+                </div>
+        </div>
+    </div>
+
+
+    <div class="contact" id="contact" >
+        <div class="cont-window" id="cont-window">
+            <a href="#" id="btn-close-contact" class="btn-close-contact"><i class="fas fa-times"></i></a>
+            <div class="img-contact"></div>
+            <div class="all-contact">
+                <div class="contactCart">
+                    <h3 class="h3-contact">Contact Us</h3>
+                    <p class="p-contact" >Bienvenido a nuestro buzon de sugerencias y canal de contacto de Games-Store</p>
+                </div>
+    
+    <section class="formulario"> 
+        <div class="contenedor-input">
+            <label></label>
+            <input placeholder="UserName *" type="text" required>
+        </div>
+    
+        <div class="contenedor-input">
+            <label></label>
+            <input placeholder="Email *" type="email" required>
+        </div>
+                        
+        <div class="contenedor-area">
+            <textarea name="" id="area-contact" cols="30" rows="10" placeholder="Mensaje *"></textarea>
+        </div>
+    
+        <input id="enviar" type="submit" value="Enviar">    
+    </section>
+
+            </div>
+        </div>
+    </div>
+        
+    <script type="module" src="app.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <!-- <script src="products.js"></script> -->
+</body>
+</html>
