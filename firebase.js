@@ -20,7 +20,5 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 
 export const updateGame = (callback) => onSnapshot(collection(db, 'products'),callback)
-// export const loadGame = () => getDocs(collection(db, 'products'))
-// export const saveGame = (name, platform, units, type, price, image) => 
-//   addDoc(collection(db, 'products'),{name, platform, units, type, price, image})
+
 

@@ -70,7 +70,7 @@ function loginUser(event) {
 	if (newU.value === "" || passNew.value === "") {
 		alert("Por favor llene todos los campos");
 	}
-	else if (!validateUser.find(user => user.user === newU.value)) {
+	else if (!validateUser.find(user => user.user  === newU.value)) {
 		alert("El usuario no existe");
 	}
 	else if (validateUser.find(user => user.user === newU.value).pass !== passNew.value) {

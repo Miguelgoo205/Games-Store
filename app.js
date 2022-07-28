@@ -5,7 +5,7 @@ const products = [];
 window.addEventListener('DOMContentLoaded', async () => {
   updateGame((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      createProducts(doc.data())
+      createProducts(doc.data());
       products.push(doc.data());
     })
   })
@@ -27,7 +27,7 @@ const newImage = document.querySelector('#new-image');
 const btnNewProduct = document.querySelector('#btn-new-create');
 const filterXPrice = document.querySelector('#filterXPrice');
 const filterXCategory = document.querySelector('#filterXCategory');
-const counter_label = document.getElementById('counter-label')
+const counter_label = document.getElementById('counter-label');
 
 
 // ALL GAMES 
@@ -43,12 +43,19 @@ const overlay = document.querySelector("#overlay");
 const popup= document.querySelector("#popup");
 const btn_close_popup = document.querySelector("#btn-close-popup");
 const shoppingCart_container= document.querySelector(".shoppingCart-container");
-const totel =document.querySelector('#total');
+const total =document.querySelector('#total');
 let games_cart=[];
 const buy = document.querySelector('#buy');
 const empty = document.querySelector('#empty');
 
 // VACIAR CARRITO
+
+// GO TO HOME
+const startGo = document.getElementById('goStart');
+startGo.addEventListener('click', start);
+function start() {
+  window.location.href= "./inicio.html";
+}
 
 
 
@@ -58,6 +65,12 @@ const contact = document.querySelector("#contact");
 const cont= document.querySelector("#cont-window");
 const btn_close_contact = document.querySelector("#btn-close-contact");
 
+// CONFIRM BUY
+const confirm = document.getElementById('confirm');
+const cont_confirm = document.getElementById('cont-confirm')
+const btnCancel = document.getElementById('cancel')
+const btnConfirm = document.getElementById('okey')
+const textBuy = document.getElementById('text')
 
 
 btnGames.addEventListener('click', allGames);
@@ -67,24 +80,61 @@ newImage.addEventListener('change', importImage);
 closeModal.addEventListener('click', removeModal);
 filterXPrice.addEventListener('change', filterPrice);
 filterXCategory.addEventListener('change', filterCategory);
-
 icon.addEventListener('click', showContact)
 log.addEventListener('click', logIn);
-
-// buy.addEventListener('click', buyProducts);
+buy.addEventListener('click', buyProducts);
 empty.addEventListener('click', emptyCart);
+btnCancel.addEventListener('click', cancel);
+btnConfirm.addEventListener('click', confirmBuy);
 
 
+function confirmBuy() {
+  textBuy.textContent = 'Thanks For Your Purchase'
+  if (textBuy.textContent === 'Thanks For Your Purchase') {
+    btnCancel.textContent = 'Close'
+    btnConfirm.style.display = 'none'
 
-function logIn() {
-  window.location.href = "/logIn.html"
+  }
+  buy.style.display = 'none'
+
+  emptyCart()
+  close_cart()
+  main.style.filter = 'blur(3px)';
 }
-function allGames() {
-  return renderCards()
+
+function cancel() {
+  confirm.classList.remove('activate')
+  cont_confirm.classList.remove('activate')
+  popup.style.filter = 'none';
+  textBuy.textContent = 'Are you sure you want to buy these products?'
+  btnConfirm.style.display = 'flex'
+  main.style.filter = 'none';
+
+}
+
+
+function buyProducts() {
+  confirm.classList.add('activate')
+  cont_confirm.classList.add('activate')
+  main.style.filter = 'blur(3px)';
+  header.style.filter = 'blur(3px)'
+  compras.style.filter = 'blur(3px)';
+  nav.style.filter = 'blur(3px)';
+  popup.style.filter = 'blur(2px)';
+}
+
+function showContact() {
+  contact.classList.add('activate');
+  cont.classList.add('activate');
+  main.style.filter = 'blur(2px)';
+  header.style.filter = 'blur(2px)'
+  compras.style.filter = 'blur(2px)';
+  nav.style.filter = 'blur(2px)';
 }
 
 function emptyCart() {
   shoppingCart_container.innerHTML = '';
+  games_cart = []
   
   const div = document.createElement('div');
   div.classList.add('message')
@@ -100,16 +150,23 @@ function emptyCart() {
   div.appendChild(image)
   shoppingCart_container.appendChild(div)
   counter_label.textContent = 0
+
+  popup.classList.remove('activate')
+  main.style.filter = 'none';
+  header.style.filter = 'none';
+  compras.style.filter = 'none';
+  nav.style.filter = 'none';
+  buy.style.display = 'none'
+  
 }
 
-function showContact() {
-  contact.classList.add('activate');
-  cont.classList.add('activate');
-  main.style.filter = 'blur(2px)';
-  header.style.filter = 'blur(2px)'
-  compras.style.filter = 'blur(2px)';
-  nav.style.filter = 'blur(2px)';
+function logIn() {
+  window.location.href = "/logIn.html"
 }
+function allGames() {
+  return renderCards()
+}
+
 
 btn_close_contact.addEventListener('click', close_section)
 function close_section(){
@@ -231,7 +288,7 @@ function renderCards() {
       const btnCard = document.createElement('button');
       btnCard.setAttribute('id', id);
       btnCard.classList.add('btn-add');
-      btnCard.textContent = 'Obtener'
+      btnCard.textContent = 'Add To Cart'
       btnCard.addEventListener('click', add_cart)
   
       card.appendChild(imgCard);
@@ -241,6 +298,7 @@ function renderCards() {
       cardChild.appendChild(play);
       cardChild.appendChild(priceCard);
       cardChild.appendChild(btnCard);
+
   
       main.appendChild(card);
   
@@ -283,7 +341,7 @@ function createProducts(products) {
     const btnCard = document.createElement('button');
     btnCard.setAttribute('id', id);
     btnCard.classList.add('btn-add');
-    btnCard.textContent = 'Obtener'
+    btnCard.textContent = 'Add To Cart'
     btnCard.addEventListener('click', add_cart)
 
     card.appendChild(imgCard);
@@ -326,6 +384,9 @@ const subtract_games = (event) => {
   games_cart.splice(parseInt(games_cart.indexOf(item)),1)
   show_games_cart();
   counter_label.textContent = resta;
+  if (counter_label.textContent === '0') {
+    buy.style.display = 'none'
+  }
 }
 
 const show_games_cart = () => {
@@ -379,7 +440,7 @@ const show_games_cart = () => {
       imagen.src=todos_productos[0].image;
       title_card.textContent=todos_productos[0].name;
       info.textContent=todos_productos[0].platform;
-      quantity.textContent='Cantidad';
+      quantity.textContent='Quantity';
       sum.textContent='+';
       number.textContent=cont;
       subtract.textContent='-';
@@ -405,16 +466,18 @@ const show_games_cart = () => {
 
       deletec.setAttribute('id',todos_productos[0].id);
       deletec.addEventListener('click', delete_cart)
-      
+
       function delete_cart(event) {
         let cantidad = Number(counter_label.textContent)-cont;
         counter_label.textContent = cantidad;
         let item = event.target.getAttribute('id');
         games_cart = games_cart.filter((id_games) => {
         return id_games !== item;
-        });
-
-          show_games_cart();
+      });     
+      if (cantidad === 0) {
+       buy.style.display = 'none';
+      }
+      show_games_cart();
       }
   })
 }
@@ -424,4 +487,5 @@ const add_cart = (event) => {
   games_cart.push(event.target.getAttribute('id'));
   show_games_cart();
   counter_label.textContent = sumar;
+  buy.style.display = 'flex';
 }

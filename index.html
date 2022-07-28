@@ -12,8 +12,9 @@
 <body>
     <header id="header">
         <div class="logotype">
-            <h1>GAMES STORE</h1>
+            <h1 id="goStart">GAMES STORE</h1>
         </div>
+            
         <div class="container-contact">
             <img  class="icon-mail" src="/Images/auriculares.png">
             <button>Contact Us</button>
@@ -29,7 +30,6 @@
             <button id="close-modal">X</button>
             <input type="text" id="new-name" placeholder="Name" >
             <select name="" id="select-platform" class="select-create">
-            <!-- <input type="text" id="new-platform" placeholder="Platform" > -->
                 <option value="">Select One Platform</option>
                 <option value="PS4">PS4</option>
                 <option value="PS5">PS5</option>
@@ -43,7 +43,7 @@
                 <option value="Juego De Disparos">Shooting Games</option>
                 <option value="Terror">Terror</option>
             </select>
-            <input type="text" id="new-price" placeholder="Price" >
+            <input type="number" id="new-price" placeholder="Price" >
             <input type="file" name="" id="new-image" >
             <button type="reset" id="btn-new-create">Create new Object</button>
         </div>
@@ -51,7 +51,7 @@
         <button id="btn-games">All Games </button>
 
         <select name="" id="filterXCategory">
-            <option value="">Filter For Category</option>
+            <option value="all">Filter For Category</option>
             <option value="Accion">Action</option>
             <option value="Aventura">Adventure</option>
             <option value="Disparo">Shooting Games</option>
@@ -94,6 +94,21 @@
         </div>
     </div>
 
+    <div id="confirm">
+        <div class="cont-confirm" id="cont-confirm">
+            <div class="header-confirm">
+                <img src="/Images/controlar.png" class="icon-confirm">
+                <h1 class="tittle-confirm">PURCHASE CONFIRMATION</h1>
+            </div>
+                <p id="text">Are you sure you want to buy these products?</p>
+            <div class ="cont-btn">
+                <button class = "btn-confirm" id="cancel">Cancel</button>
+                <button class = "btn-confirm" id="okey">Confirm</button> 
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="contact" id="contact" >
         <div class="cont-window" id="cont-window">
@@ -102,10 +117,10 @@
             <div class="all-contact">
                 <div class="contactCart">
                     <h3 class="h3-contact">Contact Us</h3>
-                    <p class="p-contact" >Bienvenido a nuestro buzon de sugerencias y canal de contacto de Games-Store</p>
+                    <p class="p-contact" >Welcome to our suggestion box and contact channel for Games-Store</p>
                 </div>
     
-    <section class="formulario"> 
+    <form class="formulario" action="https://formsubmit.co/santiagoquesadamarulanda@gmail.com" method="post"> 
         <div class="contenedor-input">
             <label></label>
             <input placeholder="UserName *" type="text" required>
@@ -117,11 +132,14 @@
         </div>
                         
         <div class="contenedor-area">
-            <textarea name="" id="area-contact" cols="30" rows="10" placeholder="Mensaje *"></textarea>
+            <textarea name="" id="area-contact" cols="30" rows="10" placeholder="Message *"></textarea>
         </div>
     
-        <input id="enviar" type="submit" value="Enviar">    
-    </section>
+        <input id="enviar" type="submit" value="Send">    
+
+        <input type="hidden" name="_next" value="http://127.0.0.1:5500/">
+        <input type="hidden" name="_captcha" value="false">
+    </form>
 
             </div>
         </div>
