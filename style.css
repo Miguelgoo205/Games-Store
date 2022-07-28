@@ -50,8 +50,8 @@
   }
 
   .log img{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
   }
   
@@ -67,9 +67,9 @@
 nav{
   height: 10vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items:center;
-  gap: 30px;
+  gap: 45px;
   margin-top: 1rem;
 }
 
@@ -673,7 +673,7 @@ h3{
   cursor: pointer;
   color: white;
   align-self: flex-end;
-  margin-left: 60rem;
+  margin-left: 42rem;
   margin-right: 2rem;
 }
 .container-contact button{

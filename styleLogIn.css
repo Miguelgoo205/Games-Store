@@ -18,7 +18,6 @@ body {
 	position: relative;
 	width: 100%;
 	height: 1300px;
-	/* height: 990px; */
 	overflow: hidden;
 	bottom: 25rem;
   }
@@ -54,17 +53,6 @@ body {
 	  transform: translateY(-5vh) scale(1);
 	}
   }
-
-/* body {
-	background-image: url(/Images/fondo2.jpg);
-	background-size: cover;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
-	margin-top: 7%;
-} */
 
 h1 {
 	font-weight: bold;
@@ -186,10 +174,8 @@ input:focus {
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
-	top: 38rem;
-	left: 37rem; 
-	/* top: 28rem;
-	left: 17rem;  */
+	top: 30rem;
+	left: 17rem; 
 
 }
 

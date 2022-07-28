@@ -30,6 +30,7 @@ const filterXCategory = document.querySelector('#filterXCategory');
 const counter_label = document.getElementById('counter-label');
 
 
+
 // ALL GAMES 
 const btnGames = document.querySelector('#btn-games')
 
@@ -288,7 +289,7 @@ function renderCards() {
       const btnCard = document.createElement('button');
       btnCard.setAttribute('id', id);
       btnCard.classList.add('btn-add');
-      btnCard.textContent = 'Add To Cart'
+      btnCard.textContent = 'Add To Car'
       btnCard.addEventListener('click', add_cart)
   
       card.appendChild(imgCard);
@@ -298,7 +299,6 @@ function renderCards() {
       cardChild.appendChild(play);
       cardChild.appendChild(priceCard);
       cardChild.appendChild(btnCard);
-
   
       main.appendChild(card);
   
@@ -341,9 +341,9 @@ function createProducts(products) {
     const btnCard = document.createElement('button');
     btnCard.setAttribute('id', id);
     btnCard.classList.add('btn-add');
-    btnCard.textContent = 'Add To Cart'
+    btnCard.textContent = 'Add To Car'
     btnCard.addEventListener('click', add_cart)
-
+  
     card.appendChild(imgCard);
     card.appendChild(cardChild);
     cardChild.appendChild(nameCard);
